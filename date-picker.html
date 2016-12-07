@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="./css/lc-date.css">
+<head>
+  <title></title>
+</head>
+<body>
+<input type="text" readonly="readonly" id="aa" style="margin: 400px 0 0 200px;">
+<input type="text" readonly="readonly" id="bb" style="margin: 400px 0 0 500px;">
+<input type="text" readonly="readonly" id="cc" style="margin: 400px 0 0 500px;">
+  <script src=".js/jquery.min.js"></script>
+  <script src=".js/lc_date.js"></script>
+  <script>
+  $(function(){
+    $('#aa').buildDate({
+      type: 'day',
+      format: '/',
+      position: 'top',
+      year: 2016,
+      month: 6,
+      day: 23,
+      showToday: true,
+      select: function(opt){
+        console.log(opt)
+      }
+    })
+      $('#bb').buildDate({
+      type: 'month',
+      format: '-',
+      year: 2015,
+      month: 6,
+      position: 'bottom',
+      showMonth: true,
+      selectMonth: function(opt){
+        console.log(opt)
+      }
+    });
+      $('#cc').buildDate({
+      type: 'year',
+      format: '-',
+      year: 2015,
+      position: 'bottom',
+      showYear: true,
+      selectYear: function(opt){
+        console.log(opt)
+      }
+    });
+  })
+   </script>
+</body>
+</html>

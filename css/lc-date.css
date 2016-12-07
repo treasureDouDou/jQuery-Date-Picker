@@ -1,0 +1,70 @@
+.lc-date{
+  color: #475669;
+  border: 1px solid #d3dce6;
+  box-shadow: 0 2px 6px #ccc;
+  background: #fff;
+  border-radius: 2px;
+  line-height: 20px;
+  width: 200px;
+  padding: 10px;
+  position: absolute;
+  display: none;
+  font-size: 12px;
+}
+.lc-date table{
+  width: 100%;
+  border-collapse: collapse;
+}
+.lc-date .td_today{
+  color: #20a0ff;
+}
+.lc-date .td-day-prev,.lc-date  .td-day-next{
+  color: #ddd;
+}
+.lc-date .td-day-active,.td-month-active,.td-year-active{
+  background-color: #20a0ff !important;
+  color: #fff!important;
+}
+.table-year td,.table-month td{
+  text-align: center;
+  padding: 10px 0;
+}
+.table-year td a,.table-month td a{
+  display: block;
+  line-height: 32px;
+  border-radius: 2px;
+}
+.lc-date td{
+  color: #475669;
+  background: #fff;
+  border-radius: 2px;
+  line-height: 20px;
+  margin: 5px 0;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  cursor: pointer;
+}
+.box-header{
+  text-align: center;
+}
+.lc-click{
+  cursor: pointer;
+}
+.lc-prevMonth,.lc-prevYear{
+  float: left;
+}
+.lc-nextMonth,.lc-nextYear{
+  float: right;
+}
+.lc-prevMonth,.lc-prevYear,.lc-nextMonth,.lc-nextYear{
+  border: 0;
+  font-size: 16px;
+  color: #99a9bf;
+  border: 0;
+  background: transparent;
+  outline: none;
+}
+.lc-year{
+  margin-right: 10px;
+}
