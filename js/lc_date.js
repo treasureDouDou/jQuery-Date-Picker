@@ -5,6 +5,7 @@ EMAIL : 564526299@qq.com
 Date: 2016-11-27
  */
 ;(function($){
+  'use strict'
   function lcDate(el,options){
     this.date = new Date();
     this.arr_week = ['日','一','二','三','四','五','六'],
@@ -338,7 +339,7 @@ Date: 2016-11-27
       }
   },
   buildNormal: function(){
-      $create_box = $('<div class="lc-date lc-date-'+ this.id +'"><div class="box-header">'
+      var $create_box = $('<div class="lc-date lc-date-'+ this.id +'"><div class="box-header">'
       +'<button class="lc-prevYear lc-click" data-role="prev-year"><i class="fa fa-angle-double-left"></i></button>'
       +'<button class="lc-prevMonth lc-click" data-role="prev-month"><i class="fa fa-angle-left"></i></button>'
       +'<span class="lc-year lc-click" data-role="select-year"></span>'
@@ -347,7 +348,7 @@ Date: 2016-11-27
       +'<button class="lc-nextMonth lc-click" data-role="next-month"><i class="fa fa-angle-right"></i></button>'
       +'</div><div class="box-body">'
       +'</div></div>');
-      $create_table = $('<table class="table-day"><thead></thead><tbody></tbody></table>');
+      var $create_table  = $('<table class="table-day"><thead></thead><tbody></tbody></table>');
       $create_box.find('.box-body').append($create_table);
       $('body').append($create_box);
       this._table = $('.lc-date-'+this.id);//存储盒子减少操作
