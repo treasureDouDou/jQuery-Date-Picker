@@ -75,6 +75,7 @@ Date: 2016-11-27
       this.buildNormalDay();//生成天
       this.el.click(function(e){
         _this._table.toggle();
+        _this.setPosition()
       })
     }else if(this.opt.type == 'month'){
       this.showType['month'] = 'month';
@@ -82,6 +83,7 @@ Date: 2016-11-27
       this.buildMonth();
       this.el.click(function(e){
         _this._table.toggle();
+        _this.setPosition()
         _this._table.find('.lc-prevMonth,.lc-nextMonth').hide();
       })
      this._table.find('.box-header').find('.lc-year').text(this.opt.year+'年');
@@ -92,10 +94,10 @@ Date: 2016-11-27
       this._table.find('.box-header .lc-year').text((parseInt(this._year))+'年-'+(parseInt(this._year)+9)+'年');
       this.el.click(function(e){
         _this._table.toggle();
+         _this.setPosition();
         _this._table.find('.lc-prevMonth,.lc-nextMonth').hide();
       })
     }
-    this.setPosition();
     function documentClick(ev){//判断显示隐藏
       var e = ev.target;
       while(e){
@@ -121,6 +123,7 @@ Date: 2016-11-27
     return (year % 4 == 0? (year % 100 == 0? true : false) : (year % 4 == 0? true : false))? 29 : 28
   },
   setPosition: function(){//设置选择器位置
+    console.log(this.el.offset().top)
     if(this.opt.position == 'bottom'){
       this.top = this.el.offset().top + this.el.outerHeight();
     }else this.top = this.el.offset().top - $('.lc-date-'+this.id).outerHeight();
@@ -191,7 +194,7 @@ Date: 2016-11-27
     },
     'select-year': function(){//点击头部上的年,建立年选择器
       if( this._table.find('.table-year').length == 0 || this.opt.year < this._year){
-        this._table.find('.lc-month').remove();
+        // this._table.find('.lc-month').remove();
         this.buildYear();
       }
       this._table.find('.table-year').show().siblings().hide();
@@ -218,7 +221,7 @@ Date: 2016-11-27
     },
     'choose-year': function(_this){//选择年
       this.opt.year = parseInt($(_this).text());
-      $(_this).parents('tbody').find('td a').removeClass('td-year-active').end().end().addClass('td-year-active');
+      $(_this).parents('.table-year').find('a').removeClass('td-year-active').end().end().addClass('td-year-active');
       this._table.find('.table-month').show().siblings().hide();
       if(this.opt.type == 'day' || this.opt.type == 'month'){
         if(this._table.find('.table-month').length == 0) this.buildMonth(this.opt);
@@ -238,7 +241,7 @@ Date: 2016-11-27
     },
     'choose-month': function(_this){//选择月份
       this.opt.month = parseInt($(_this).parent().data('month'));
-      $(_this).parents('tbody').find('a').removeClass('td-month-active').end().end().addClass('td-month-active');
+      $(_this).parents('.table-month').find('a').removeClass('td-month-active').end().end().addClass('td-month-active');
       if(this.opt.type == 'day'){
         this._table.find('.table-day').show().siblings().hide();
         this._table.find('.box-header').children().show().siblings('.lc-month').text(this.opt.month+1 < 10? ('0'+(this.opt.month+1)+'月'): ((this.opt.month+1)+'月'));
